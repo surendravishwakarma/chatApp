@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "199635005121",
+    "project_id": "hestabit-c299c",
+    "storage_bucket": "hestabit-c299c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:199635005121:android:254022fd40e2dd57eeee40",
+        "android_client_info": {
+          "package_name": "com.example.chatapphesta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "199635005121-02p0bv8gn3tbe5jlnag8t38i94dpl9dm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJ295yfQCCSN-9chRO0kzNh9_UR043J8I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "199635005121-02p0bv8gn3tbe5jlnag8t38i94dpl9dm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
