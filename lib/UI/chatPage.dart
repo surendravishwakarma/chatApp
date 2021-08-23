@@ -17,9 +17,7 @@ class ChatPage extends StatefulWidget {
 class _ChatPageState extends State<ChatPage> {
   Stream? chatroomStream;
   DataBaseMethod db = new DataBaseMethod();
-
   
-
   Widget chatRoomList(BuildContext context){
     return StreamBuilder(
         stream: chatroomStream,
@@ -157,7 +155,7 @@ class _ChatLitTileState extends State<ChatLitTile> {
                 borderRadius: BorderRadius.circular(20.0),
               ),
               child: Text(
-                "${widget.username.substring(0, 1).toUpperCase()}",
+                "${widget.username.substring(0, 1).toUpperCase()}",style: TextStyle(color: Colors.white,fontSize: 20.0),
               ),
             ),
             SizedBox(

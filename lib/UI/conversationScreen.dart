@@ -47,8 +47,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
                   }),
             );
           } else {
-            return Container(child: Center(child:Text("NO Message"))
-            );
+            return Container();
           }
         });
   }

@@ -36,7 +36,10 @@ dependencies:
   fluttertoast: ^8.0.8
   shared_preferences: ^2.0.6
   font_awesome_flutter: ^8.5.0
-  # flutter_local_notifications: ^6.0.0
+  flutter_facebook_auth: ^3.5.0+1
+  flutter_facebook_login: ^3.0.0
+  flutter_local_notifications: ^8.1.1+1
+
 
 dev_dependencies:
   flutter_test:

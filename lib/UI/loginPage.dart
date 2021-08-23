@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+
+
 class LoginPage extends StatefulWidget {
   @override
   _State createState() => _State();
@@ -27,6 +29,8 @@ class _State extends State<LoginPage> {
       _obscureText = !_obscureText;
     });
   }
+  bool isLoginFacebook=false;
+  Map _userObj={};
 
   Future<bool?> showWarning(BuildContext context) async => showDialog<bool>(
       context: context,
@@ -41,6 +45,35 @@ class _State extends State<LoginPage> {
                   child: Text("Yes")),
             ],
           ));
+
+// Map? userMap;
+// final facebookLogin=facebookLogin();
+// void initiateFacebookLogin() async {
+//     var facebookLogin = FacebookLogin();
+//     var facebookLoginResult =
+//         await facebookLogin.logInWithReadPermissions(['email']);
+//      switch (facebookLoginResult.status) {
+//       case FacebookLoginStatus.error:
+//         print("Error");
+//         onLoginStatusChanged(false);
+//         break;
+//       case FacebookLoginStatus.cancelledByUser:
+//         print("CancelledByUser");
+//         onLoginStatusChanged(false);
+//         break;
+//       case FacebookLoginStatus.loggedIn:
+//         print("LoggedIn");
+//         onLoginStatusChanged(true);
+//         break;
+//     }
+//   }
+//   bool isLoggedIn = false;
+//   void onLoginStatusChanged(bool isLoggedIn) {
+//     setState(() {
+//       this.isLoggedIn = isLoggedIn;
+//     });
+//   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +91,15 @@ class _State extends State<LoginPage> {
             style: boldStyle(),
           ),
         ),
-        body: Container(
+        body: isLoginFacebook?Column(
+          children: [
+            Image.network(_userObj["picture"]["data"]["url"]),
+            Text(_userObj["name"]),
+            Text(_userObj["email"]),
+            
+          ],
+        ):
+        Container(
           color: Colors.white,
           child: Form(
             key: _formKey,
@@ -244,10 +285,33 @@ class _State extends State<LoginPage> {
                     Padding(
                       padding: EdgeInsets.all(10.0),
                       child: Container(
-                        child: Icon(
-                          Icons.facebook,
+                        child: IconButton(
+                          icon: Icon(Icons.facebook),
+                          iconSize: 30,
                           color: Colors.blue,
-                          size: 30.0,
+                          onPressed: () async{
+
+                            // FacebookAuth.instance.login(
+                            //   permissions: ["public_profile", "email"]).then((value) => FacebookAuth.instance.getUserData().then((userData){
+                            //     setState(() {
+                            //       print(">>>>>>>>>>>>>userData>>>>>>>>>>>>>>>>>>>>>${userData.toString()}");
+                            //       isLoginFacebook=true;
+                            //       _userObj=userData;
+                            //         Navigator.pushReplacement(
+                            //         context,
+                            //         MaterialPageRoute(
+                            //             builder: (context) => ChatPage()));
+
+                            //     });
+                            //   }));
+                            
+
+                            
+
+
+
+
+                          },
                         ),
                       ),
                     ),
@@ -264,8 +328,11 @@ class _State extends State<LoginPage> {
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Container(
-                        child:Icon(FontAwesomeIcons.twitter,size: 28.0,color: Colors.blue,)
-                      ),
+                          child: Icon(
+                        FontAwesomeIcons.twitter,
+                        size: 28.0,
+                        color: Colors.blue,
+                      )),
                     ),
                     Expanded(
                         child: Container(
@@ -308,6 +375,7 @@ class _State extends State<LoginPage> {
             ),
           ),
         ),
+     
       ),
     );
   }
